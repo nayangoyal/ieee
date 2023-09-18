@@ -14,13 +14,7 @@ const MyContextProvider = ({ children }) => {
 // }, [activityData]); 
   
   const sendData=async(path,obj)=>{
-   const getdata = await  fetch(path, {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json"
-      },
-      body: JSON.stringify(obj)
-  })
+   const getdata = await  fetch(path);
   
   const jsondata = await getdata.json();
 // console.log(jsondata);
