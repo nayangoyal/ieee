@@ -24,7 +24,7 @@ const MyContextProvider = ({ children }) => {
   setUserdata({...jsondata})
   if(!jsondata.error){
     setActivityData([...jsondata.Activity]);
-
+  console.log(activityData);
   }
 
   console.log(activityData)
@@ -32,6 +32,10 @@ const MyContextProvider = ({ children }) => {
   
 
   }
+  useEffect(() => {
+  console.log(activityData); // This will log the updated activityData when it changes
+}, [activityData]);
+
   const getDailydatauser=async(obj)=>{
     const getdailldataus = await  fetch("https://ieee-api.vercel.app/activity/dailyactivity", {
       method: "POST",
