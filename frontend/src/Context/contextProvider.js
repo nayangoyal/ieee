@@ -8,6 +8,11 @@ const MyContextProvider = ({ children }) => {
   const[userData,setUserdata]=useState({});
   const[activityData,setActivityData]=useState([]);
   const[goal,setuserGoal]=useState([]);
+
+  useEffect(() => {
+  console.log(activityData); // This will log the updated activityData when it changes
+}, [activityData]); 
+  
   const sendData=async(path,obj)=>{
    const getdata = await  fetch(path, {
       method: "POST",
@@ -32,9 +37,6 @@ const MyContextProvider = ({ children }) => {
   
 
   }
-  useEffect(() => {
-  console.log(activityData); // This will log the updated activityData when it changes
-}, [activityData]);
 
   const getDailydatauser=async(obj)=>{
     const getdailldataus = await  fetch("https://ieee-api.vercel.app/activity/dailyactivity", {
