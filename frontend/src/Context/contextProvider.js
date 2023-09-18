@@ -9,9 +9,9 @@ const MyContextProvider = ({ children }) => {
   const[activityData,setActivityData]=useState([]);
   const[goal,setuserGoal]=useState([]);
 
-  useEffect(() => {
-  console.log(activityData); // This will log the updated activityData when it changes
-}, [activityData]); 
+//   useEffect(() => {
+//   console.log(activityData); // This will log the updated activityData when it changes
+// }, [activityData]); 
   
   const sendData=async(path,obj)=>{
    const getdata = await  fetch(path, {
