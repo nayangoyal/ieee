@@ -6,8 +6,8 @@ app.use(cors());
 
 app.use(
   cors({
-    origin: "https://ieee-frontend-wheat.vercel.app", // Replace with your frontend URL
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    origin: ["https://ieee-frontend-wheat.vercel.app"], // Replace with your frontend URL
+    methods: ["GET","HEAD","PUT","PATCH","POST","DELETE"],
     credentials: true, // This allows cookies to be included in the request
   })
 );
