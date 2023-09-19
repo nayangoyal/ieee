@@ -8,14 +8,13 @@ const MyContextProvider = ({ children }) => {
   const[userData,setUserdata]=useState({});
   const[activityData,setActivityData]=useState([]);
   const[goal,setuserGoal]=useState([]);
+
+//   useEffect(() => {
+//   console.log(activityData); // This will log the updated activityData when it changes
+// }, [activityData]); 
+  
   const sendData=async(path,obj)=>{
-   const getdata = await  fetch(path, {
-      method: "POST",
-      headers: {
-          "Content-Type": "application/json"
-      },
-      body: JSON.stringify(obj)
-  })
+   const getdata = await  fetch(path);
   
   const jsondata = await getdata.json();
 // console.log(jsondata);
@@ -24,7 +23,7 @@ const MyContextProvider = ({ children }) => {
   setUserdata({...jsondata})
   if(!jsondata.error){
     setActivityData([...jsondata.Activity]);
-
+  console.log(activityData);
   }
 
   console.log(activityData)
@@ -32,8 +31,9 @@ const MyContextProvider = ({ children }) => {
   
 
   }
+
   const getDailydatauser=async(obj)=>{
-    const getdailldataus = await  fetch("http://localhost:3000/activity/dailyactivity", {
+    const getdailldataus = await  fetch("https://ieee-api.vercel.app/activity/dailyactivity", {
       method: "POST",
       headers: {
           "Content-Type": "application/json"
@@ -46,7 +46,7 @@ return jsdd
   }
 // for compare
 const getDailydatacompare=async(obj)=>{
-  const getdailldatac = await  fetch("http://localhost:3000/activity/dailyactivity", {
+  const getdailldatac = await  fetch("https://ieee-api.vercel.app/activity/dailyactivity", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -63,7 +63,7 @@ return jsdd
 
   const[isLogin,setisLogin]=useState(false);
 const setGoal=async(obj)=>{
-  const getallgoal = await  fetch("http://localhost:3000/activity/getgoal", {
+  const getallgoal = await  fetch("https://ieee-api.vercel.app/activity/getgoal", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
@@ -76,7 +76,7 @@ console.log(jsdd);
 }
 
 const addGoal=async(obj)=>{
-  const addgoal = await  fetch("http://localhost:3000/activity/addgoal", {
+  const addgoal = await  fetch("https://ieee-api.vercel.app/activity/addgoal", {
     method: "POST",
     headers: {
         "Content-Type": "application/json"
